@@ -1,0 +1,19 @@
+{
+  "name": "hack2skill_task2_youtube",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/iam-riyaz/hack2skill_task2_youtube.git",
+  "author": "riyaz ahmad <riyaz.ahmad@indusnet.co.in>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.4",
+    "nodemon": "^3.0.1"
+  }
+}
