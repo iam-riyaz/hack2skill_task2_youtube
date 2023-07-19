@@ -40,14 +40,14 @@ app.get("/getData", async (req, res) => {
 
 // endpoint to search form video stored in database
 app.get("/search", async (req, res) => {
-  const query = req.body.query;
+  const query = req.query.search;
   console.log({ query });
   const searchKeyword = {
     $or: [
-      { title: { $regex: query, $options: "i" } },
-      { description: { $regex: query, $options: "i" } },
+      { title: { $regex: query ||"", $options: "i" } },
+      { description: { $regex: query|| "", $options: "i" } },
     ],
-  };
+  } ||{};
 
   const page = 1; // Get the page number from the query parameter
   const pageSize = 10; // Get the page size from the query parameter
