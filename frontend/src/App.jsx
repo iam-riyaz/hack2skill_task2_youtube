@@ -20,6 +20,7 @@ function App() {
     axios({method:"get",url:`https://hack2skill-task2.onrender.com/search`,params:{search:searchInput} })
     .then((res)=>{
       setAllData([])
+      setSearchResult(res.data)
       console.log(res)
     })
   };

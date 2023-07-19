@@ -26,7 +26,7 @@ app.get("/getData", async (req, res) => {
   const page = 1; // Get the page number from the query parameter
   const pageSize = 10; // Get the page size from the query parameter
   const sortField = "publishedAt"; // Get the field to sort by from the query parameter
-  const sortOrder = -1;
+  const sortOrder = 1;
   try {
     const videoData = await Video.find({})
       .sort({ [sortField]: sortOrder })
@@ -52,7 +52,7 @@ app.get("/search", async (req, res) => {
   const page = 1; // Get the page number from the query parameter
   const pageSize = 10; // Get the page size from the query parameter
   const sortField = "publishedAt"; // Get the field to sort by from the query parameter
-  const sortOrder = -1;
+  const sortOrder = 1;
 
   try {
     const searchedData = await Video.find(searchKeyword)
