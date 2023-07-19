@@ -25,12 +25,17 @@ function App() {
     })
   };
 
-  const updateDB = () => {};
+  const updateDB = () => {
+    axios.post(`https://hack2skill-task2.onrender.com/saveData`).then((res)=>{
+      console.log(res)
+    })
+  };
 
   const getData = () => {
     axios
       .get("https://hack2skill-task2.onrender.com/getData")
       .then((res) => {
+        setSearchResult([])
         setAllData(res.data.videoData);
         console.log(allData);
       })
@@ -52,6 +57,7 @@ function App() {
 
       <div style={{ display: "flex" }}>
         <div>
+          <h2 style={{color:"red"}}>Latest Data</h2>
           {allData.length != 0 ? (
             <table>
               <thead>
@@ -80,10 +86,11 @@ function App() {
               </tbody>
             </table>
           ) : (
-            <h2>No data found</h2>
+            <h4>No data found</h4>
           )}
         </div>
         <div>
+        <h2 style={{color:"red"}}>Search Data</h2>
           {searchResult.length != 0 ? (
             <table>
               <thead>
@@ -113,7 +120,7 @@ function App() {
               </tbody>
             </table>
           ) : (
-            <h2>No Search data found</h2>
+            <h4>No Search data found</h4>
           )}
         </div>
       </div>
