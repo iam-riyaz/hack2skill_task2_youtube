@@ -71,7 +71,7 @@ function App() {
               <tbody>
                 {allData.map((e) => {
                   let date = moment.unix(e.publishedAt); // Convert Unix timestamp to moment object
-                  let readableTime = date.format("MMMM Do, h:mm:ss a"); // Format the moment object
+                  let readableTime = date.format("MMMM Do YYYY, h:mm A"); // Format the moment object
                   return (
                     <tr>
                       <td>{e.title}</td>
@@ -104,7 +104,7 @@ function App() {
               <tbody>
                 {searchResult.map((e) => {
                   let date = moment.unix(e.publishedAt); 
-                  let readableTime = date.format("MMMM Do, h:mm:ss a"); 
+                  let readableTime = date.format("MMMM Do YYYY, h:mm A"); 
 
                   return (
                     <tr>

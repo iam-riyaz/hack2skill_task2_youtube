@@ -3,6 +3,7 @@ import { connectDB } from "./db.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import axios from "axios";
+import moment from "moment";
 import { Video } from "./model/video.model.js";
 const app = express();
 app.use(cors());
@@ -66,7 +67,7 @@ app.get("/search", async (req, res) => {
   }
 });
 
-const SearchQuery = "latest news";
+const SearchQuery = "news";
 let videoDataArr = [];
 
 // to get latest data from youtube
@@ -79,7 +80,7 @@ const getYouTubeData = async () => {
     const items = res.data.items;
     let arr = items.map((item) => {
       let dateStr = res.data.items[0].snippet.publishedAt;
-      const timestamp = Date.parse(dateStr);
+      const timestamp = moment(dateStr).unix()
       return {
         title: item.snippet.title,
         description: item.snippet.description,
